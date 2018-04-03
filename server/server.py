@@ -5,9 +5,12 @@ app = Flask(__name__)
 
 @app.route('/hello', methods=['POST'])
 def hello():
+    print "hello"
     req_json = request.get_json(force=True, silent=True)
     if req_json is None:
         req_json = {}
+    print('req_json', req_json)
+    print(req_json)
     return jsonify(code=0,
                    message='',
                    data=req_json)
